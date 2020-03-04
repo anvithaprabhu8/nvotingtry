@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Account } from '../model/account.model';
+import { AccountRepository } from '../model/account.repository';
 
 @Component({
   selector: 'app-otherlogin',
@@ -10,7 +11,9 @@ import { Account } from '../model/account.model';
 export class OtherloginComponent implements OnInit {
 
   submitted: boolean = false;
-  constructor(public account: Account) { }
+  constructor(public account: Account, private accountRepo: AccountRepository) {
+
+  }
 
   ngOnInit() {
   }
@@ -19,4 +22,39 @@ export class OtherloginComponent implements OnInit {
 
   }
 
+  validate(username: string, password: string) {
+    console.log(username);
+    console.log(password);
+    this.accountRepo.getAccount(username).subscribe(data => {
+      if (data == null) {
+        alert("Please enter correct username!");
+        window.location.href = "/login";
+      }
+      else if (data.username == username) {
+        if (data.password == password) {
+          if (data.accounttype == "candidate") {
+            alert("Logged in as candidate!");
+            window.location.href = "/candidate";
+          }
+          else if(data.accounttype == "ess") {
+            alert("Logged in as ESS!");
+            window.location.href = "/ess";
+          }
+          else if(data.accounttype == "eca") {
+            alert("Logged in as ECA!");
+            window.location.href = "/eca";
+          }
+          else {
+            alert("Please log in as " + data.accounttype);
+          }
+        }
+        else {
+          alert("Please enter correct password!");
+          window.location.href = "/login";
+        }
+      }
+
+    });
+
+  }
 }

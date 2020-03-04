@@ -16,6 +16,11 @@ import { ViewresultComponent } from './login/viewresult.component';
 import { VotenowloginComponent } from './login/votenowlogin.component';
 import { VoteComponent } from './login/vote.component';
 import { CandiupasswordComponent } from './login/candiupassword.component';
+import { VotebuttonsComponent } from './login/votebuttons.component';
+import { AppliedcandidatesComponent } from './login/appliedcandidates.component';
+import { EssComponent } from './login/ess.component';
+import { GenvotingpassComponent } from './login/genvotingpass.component';
+import { EnablevotingComponent } from './login/enablevoting.component';
 
 const routes: Routes = [
 {path:"register",component:RegisterComponent/*canActivate:[Navigate]*/},
@@ -32,7 +37,12 @@ const routes: Routes = [
   {path:"viewresult",component:ViewresultComponent},
   {path:"votelogin",component:VotenowloginComponent},
   {path:"vote",component:VoteComponent},
+  {path:"ess",component:EssComponent},
+  {path:"ess/genvotingpass",component:GenvotingpassComponent},
+  {path:"ess/enablevoting",component:EnablevotingComponent},
+  {path: "eca/appliedcandidates", component:AppliedcandidatesComponent},
   {path:"candiupassword",component:CandiupasswordComponent},
+  {path:"votebuttons",component:VotebuttonsComponent},
   {path:"**",redirectTo:"home"},
 ];
 

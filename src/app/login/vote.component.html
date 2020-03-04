@@ -1,8 +1,8 @@
 <div class="container">
     <div >
         <label for="region" ><h5>Choose your region:</h5></label>
-            <select  id="region"  class="btn btn-primary" [value]="" (change)="changeCandi($event.target.value)">
-            <option *ngFor="let area of areas" value="ar">{{area}}</option>
+            <select  id="region"  class="btn btn-primary" [value]="area" (change)="changeCandi($event.target.value)">
+            <option *ngFor="let area of areas">{{area}}</option>
             </select>
      </div>
 

@@ -7,12 +7,16 @@ import { Injectable } from '@angular/core';
 export class UserRepository {
 
     private unapprovedUsers: [];
+    private approvedUsers: [];
     public user: Observable<Users>;
 
     constructor(private dataSource: RestDataSource) {
         dataSource.getUnapprovedUsers().subscribe(data => {
             this.unapprovedUsers = data;
         });
+        dataSource.getApprovedUsers().subscribe(data => {
+            this.approvedUsers = data;
+        })
         //this.user = this.getUsersByAadhar("4NM16CS000");
     }
 
@@ -25,6 +29,10 @@ export class UserRepository {
         return this.unapprovedUsers;
     }
 
+    getApprovedUsers(): [] {
+        return this.approvedUsers;
+    }
+
     getUsersByAadhar(aadhar: string) {
         this.user = this.dataSource.getUsersByAadhar(aadhar);/*.subscribe(data => {
              //this.user = data;
@@ -34,5 +42,9 @@ export class UserRepository {
         });*/
         //console.log(this.user);
         return this.user;
+    }
+
+    deleteUser(aadhar: string) {
+        return this.dataSource.deleteUser(aadhar);
     }
 }

@@ -3,6 +3,8 @@ import { Users } from './users.model';
 import { Observable } from 'rxjs';
 import { Injectable } from '@angular/core';
 import { Candidate } from './candidate.model';
+import { Account } from '../model/account.model'
+import { Stations } from './station.model';
 
 const PROTOCOL = "http";
 const PORT = 8088;
@@ -18,6 +20,10 @@ export class RestDataSource {
 
     registerUser(user: Users): Observable<Users> {
         return this.http.post<Users>(this.baseUrl + "/register", user);
+    }
+
+    updateStation(station: Stations): Observable<Stations> {
+        return this.http.put<Stations>(this.baseUrl + "/updatestation", station);
     }
 
     getCandidateDetails(): Observable<Candidate[]> {
@@ -46,6 +52,43 @@ export class RestDataSource {
 
     getCandidatesByRegion(area:string):Observable<[]>{
         return this.http.get<[]>(this.baseUrl+"/candibyregion"+area);
+    }
+
+    createAccount(account: Account): Observable<Account> {
+        return this.http.post<Account>(this.baseUrl + "/saveaccount",account);
+    }
+
+    deleteUser(aadhar: string): Observable<Users> {
+        console.log("Hi again");
+        return this.http.delete<Users>(this.baseUrl + "/delete/"+aadhar);
+    }
+
+    getAccount(username: string): Observable<Account> {
+        return this.http.get<Account>(this.baseUrl + "/viewaccount/"+username);
+    }
+
+    getApprovedUsers(): Observable<[]> {
+        return this.http.get<[]>(this.baseUrl + "/viewapproved");
+    }
+
+    getUnapprovedCandidates(): Observable<[]> {
+        return this.http.get<[]>(this.baseUrl + "/unapcandi");
+    }
+
+    getUnactivatedStations(): Observable<[]> {
+        return this.http.get<[]>(this.baseUrl + "/stationinfo");
+    }
+
+    getActivatedStations(): Observable<[]> {
+        return this.http.get<[]>(this.baseUrl + "/activatedstations");
+    }
+
+    getStations(id: string): Observable<Stations> {
+        return this.http.get<Stations>(this.baseUrl + "/viewstation/"+id);
+    }
+
+    getAllStations(): Observable<Stations[]> {
+        return this.http.get<Stations[]>(this.baseUrl + "/allstations");
     }
 
 }

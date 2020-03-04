@@ -1,6 +1,9 @@
 <div class="container">
+    <br>
+    <br>
+    <h4>LIST OF APPLIED VOTERS</h4>
     <div>
-        <table class="table table-striped">
+        <table class="table table-striped table-bordered">
             <thead>
                 <tr>
                     <th scope="col">Name</th>
@@ -15,17 +18,15 @@
                     <td>{{ x[0] }}</td>
                     <td>{{ x[1] }}</td>
                     <td>{{ x[2] }}</td>
-                    <td><button type="button" class="btn btn-success" (click)="validateUser(x[2])">Approve</button>
+                    <td><button type="button" class="btn btn-outline-success" (click)="validateUser(x[2])">Approve</button>
                         &nbsp;
-                        <button type="button" class="btn btn-danger">Reject</button></td>
+                        <button type="button" class="btn btn-outline-danger" (click)="rejectUser(x[2])">Reject</button></td>
                 </tr>
             </tbody>
         </table>
         <button class="btn btn-secondary m-1" routerLink="/eca">
             Home
         </button>
-       
-       <span *ngIf="user!=null">{{user.name}}</span>
 
     </div>
 </div>

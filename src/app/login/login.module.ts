@@ -16,10 +16,15 @@ import { ViewresultComponent } from './viewresult.component';
 import { VotenowloginComponent } from './votenowlogin.component';
 import { VoteComponent } from './vote.component';
 import { CandiupasswordComponent } from './candiupassword.component';
+import { VotebuttonsComponent } from './votebuttons.component';
+import { AppliedcandidatesComponent } from './appliedcandidates.component';
+import { EssComponent } from './ess.component';
+import { GenvotingpassComponent } from './genvotingpass.component';
+import { EnablevotingComponent } from './enablevoting.component';
 
 
 @NgModule({
-  declarations: [LoginComponent, CandidateComponent, OtherloginComponent, EcaComponent, CandidatecvComponent, AppliedvotersComponent, LogindetailsComponent, ViewcandidateComponent, VoterupasswordComponent, ViewresultComponent, VotenowloginComponent, VoteComponent, CandiupasswordComponent],
+  declarations: [LoginComponent, CandidateComponent, OtherloginComponent, EcaComponent, CandidatecvComponent, AppliedvotersComponent, LogindetailsComponent, ViewcandidateComponent, VoterupasswordComponent, ViewresultComponent, VotenowloginComponent, VoteComponent, CandiupasswordComponent, VotebuttonsComponent, AppliedcandidatesComponent, EssComponent, GenvotingpassComponent, EnablevotingComponent],
   imports: [
     CommonModule,
     ModelModule,

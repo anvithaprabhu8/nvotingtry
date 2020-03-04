@@ -16,10 +16,10 @@ export class VoteComponent implements OnInit {
     return this.repo.getAllAreas();
   }
   // get candibyregions(area:string):[]{
-  //   return this.repo.getCandidatesByRegion(area);
+  //    return this.repo.getCandidatesByRegion(area);
   // }
   changeCandi(area:string){
-   
+   console.log(area);
   }
 
 }

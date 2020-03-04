@@ -16,7 +16,7 @@
         </span>
     </div>
     <div class="text-center">
-        <button class="btn btn-primary m-1" type="submit">
+        <button class="btn btn-primary m-1" (click)="validate(account.username, account.password)" [disabled]="!(username.dirty && password.dirty)" type="submit">
             Login
         </button>
         <button class="btn btn-primary m-1" routerLink="/register" >
